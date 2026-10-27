@@ -1,0 +1,50 @@
+VIDA STUDIO — V3
+
+COMO ABRIR
+Abra index.html no mesmo navegador usado antes. Se já estava aberto, pressione Ctrl+F5 para carregar os arquivos novos. Os registros existentes em vida.v1 são mantidos; os módulos novos usam também vida.studio.v3.
+
+TREINOS
+A área Treinos tem rotinas, sessão ativa e histórico. Crie uma rotina com exercícios da biblioteca ou nomes próprios, dias, séries, repetições e carga inicial. Inicie a rotina para registrar carga e repetições de cada série. O botão de confirmação marca a série e inicia o descanso. É possível escolher tipo de série, mudar o descanso, adicionar/remover séries e exercícios. O cronômetro usa o horário real e a sessão fica salva ao fechar/reabrir.
+Finalizar salva o histórico detalhado; só séries marcadas entram no volume (kg × repetições). A carga anterior vem da última sessão registrada com o mesmo nome de exercício. Treinos livres também podem ser registrados. Fichas antigas e seus históricos por dia são preservados; séries detalhadas anteriores não são inventadas.
+Inspiração de fluxo: https://www.hevyapp.com/features/track-workouts/
+
+ALIMENTAÇÃO
+O catálogo inicial contém 101 alimentos, com busca e categorias: frutas, carnes, peixes, vegetais, laticínios, doces, cereais, leguminosas e ovos. Cadastre alimentos próprios usando calorias do rótulo por porção. As porções usam unidades caseiras, sem exigir pesagem. Os tamanhos são aproximados.
+1. Cadastre refeições na dieta fixa, com dias da semana. Nenhum dia selecionado significa todos os dias.
+2. A dieta aparece como PLANEJADA, sem contar automaticamente como consumida.
+3. Clique Comi esta refeição para registrar um retrato do que comeu. Alterar o plano depois não muda o histórico.
+4. Para um extra, escolha alimentos ou ative Sei as calorias do rótulo e informe o total, por exemplo chocolate de 500 kcal.
+5. A projeção soma consumo + refeições planejadas ainda pendentes. Extras entram nessa projeção.
+6. Simular porções hoje permite ajustar apenas a refeição deste dia e ver a nova projeção, sem alterar a dieta fixa. Para desfazer, restaure as porções originais.
+7. A referência diária é a soma original do plano daquele dia, ou um valor definido por você. Não é calculada como recomendação de ingestão.
+Selecione outra data para consultar registros. Refeições antigas continuam como consumo registrado e podem ser copiadas para o plano. Ao copiar um registro antigo para o plano, ele é reconhecido como já consumido naquela data, evitando duplicação.
+Comparar kcal não equivale a comparar nutrientes nem significa que você precisa compensar um alimento pulando refeições. O simulador só mostra diferenças numéricas escolhidas por você.
+
+FONTES DO CATÁLOGO
+Os oito alimentos da versão anterior mantêm as medidas e valores consultados na SBD 2024.
+https://diabetes.org.br/wp-content/uploads/2024/11/Manual-contagem-carboidratos2024.pdf
+O catálogo ampliado usa energia por 100 g da TACO, NEPA/UNICAMP, 4ª edição, 2011. Conversão para medidas caseiras aproximadas definida pelo Vida; a equivalência interna de cada porção está no campo referenceGrams de catalog.js. Fórmula: kcal da porção = energia por 100 g × equivalência / 100. Não é necessário informar peso na interface. Medidas e preparos diferentes alteram o resultado. Para produtos específicos, prefira o rótulo.
+https://www.nepa.unicamp.br/arquivo/uploads/taco-4-edicao-ampliada-e-revisada/taco_4_edicao_ampliada_e_revisada/
+
+IDEIAS / QUADRO BRANCO
+As ideias anteriores viram post-its com texto preservado. Crie post-its, escreva o título e o texto, arraste pelo topo, selecione uma cor e conecte origem/destino com Conectar ou pela seta no topo. As linhas acompanham o movimento. Clique em uma conexão para removê-la. Selecionar permite mover notas; Mover quadro permite arrastar a área. Há barras de rolagem, zoom de 40% a 150% e Enquadrar. O quadro mede 4000 × 2600.
+Selecione uma nota e use o botão de excluir. Desfazer recupera até 30 ações desta sessão do quadro, incluindo criação, posição, cor, texto e conexões. O histórico de desfazer não persiste após recarregar. Posições, notas, cores e conexões persistem.
+Acessibilidade: foque no topo de um post-it e use as setas (Shift aumenta o passo). Conexões podem ser focadas e removidas com Enter/Delete.
+Inspiração de fluxo: https://help.miro.com/hc/en-us/articles/360017572054-Sticky-notes
+https://help.miro.com/hc/en-us/articles/360017730733-Connection-lines
+
+OUTROS MÓDULOS
+Finanças, hábitos e metas continuam com as funções da V2. Contas têm pagamentos parciais e saldo; hábitos têm dias personalizados; metas têm progresso e prazo.
+
+BACKUP E ARMAZENAMENTO
+Exportar salva um backup V3 completo com registros antigos, contas, planos, consumo, alimentos personalizados, sessões ativas/finalizadas e conexões do quadro. Importar aceita V1, V2 ou V3. Importar V1/V2 restaura somente o que aquelas versões continham e substitui os dados dos módulos novos, após confirmação. Faça um backup V3 antes de substituir.
+Tudo permanece no armazenamento local deste navegador, sem sincronização, banco de dados remoto ou integração com Hevy/Miro. Limpar os dados do navegador pode apagar os registros. Não use duas abas editando os mesmos dados simultaneamente.
+
+ARQUIVOS
+index.html, style.css, domain.js e app.js: base e módulos anteriores.
+catalog.js: catálogo e biblioteca de exercícios.
+studio.js e studio.css: novos módulos de treino, alimentação e quadro.
+imagens/: espaço para futuras imagens.
+
+VERIFICAÇÃO
+Sintaxe JavaScript, referências HTML e cenários automatizados de estado e cálculos verificados. Os testes cobrem dieta/consumo, extras, simulação por dia, séries/volume/carga anterior, persistência, conexões/undo, criação de rotinas e backups. A inspeção visual em navegador não foi realizada devido à restrição da prévia local neste ambiente.

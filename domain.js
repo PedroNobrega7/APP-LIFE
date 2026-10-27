@@ -1,0 +1,7 @@
+'use strict';
+// Medidas caseiras e energia: Manual de Contagem de Carboidratos SBD 2024.
+const FOODS=[{id:'arroz',name:'Arroz branco cozido',portion:'1 colher de servir',kcal:74},{id:'feijao',name:'Feijão carioca cozido',portion:'1 concha média rasa',kcal:89},{id:'frango',name:'Filé de frango cozido',portion:'1 filé pequeno',kcal:163},{id:'ovo',name:'Ovo cozido',portion:'1 unidade média',kcal:71},{id:'banana',name:'Banana-prata',portion:'1 unidade pequena',kcal:40},{id:'pao',name:'Pão francês',portion:'1 unidade',kcal:135},{id:'integral',name:'Arroz integral cozido',portion:'1 colher de sopa cheia',kcal:25},{id:'feijaopreto',name:'Feijão preto cozido',portion:'1 concha média rasa',kcal:61}];
+const cents=n=>Math.round(Number(n)*100),cash=n=>Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function billSummary(b){const total=cents(b.amount),paid=(b.payments||[]).reduce((s,p)=>s+cents(p.amount),0);return{total:total/100,paid:paid/100,remaining:Math.max(0,total-paid)/100,percent:total>0?Math.min(100,paid/total*100):0}}
+function mealCalories(items){return Math.round((items||[]).reduce((s,i)=>s+(FOODS.find(f=>f.id===i.food)?.kcal||0)*Number(i.qty),0))}
+function addPayment(b,amount,date,paymentId){const n=cents(amount),remaining=cents(billSummary(b).remaining);if(!Number.isFinite(n)||n<=0||n>remaining)throw Error('Informe um valor maior que zero e até o saldo restante.');b.payments||=[];b.payments.push({id:paymentId,amount:n/100,date});return b}
